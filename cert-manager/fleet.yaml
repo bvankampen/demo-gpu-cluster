@@ -1,0 +1,9 @@
+namespace: cert-manager
+helm:
+  chart: cert-manager
+  releaseName: cert-manager
+  repo: https://charts.jetstack.io
+  version: 1.15.3
+  values:
+    crds:
+      enabled: true

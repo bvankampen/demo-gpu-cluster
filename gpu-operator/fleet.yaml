@@ -1,0 +1,8 @@
+namespace: gpu-operator
+helm:
+  chart: gpu-operator
+  releaseName: gpu-operator
+  repo: https://helm.ngc.nvidia.com/nvidia
+  version: 24.6.1
+  valuesFiles:
+    - values.yaml

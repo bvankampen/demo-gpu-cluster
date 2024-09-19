@@ -1,0 +1,8 @@
+namespace: jhub
+helm:
+  chart: jupyterhub
+  releaseName: jupyterhub
+  repo: https://jupyterhub.github.io/helm-chart/
+  version: 3.3.8
+  valuesFiles:
+    - values.yaml

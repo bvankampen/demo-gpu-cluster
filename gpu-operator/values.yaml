@@ -1,0 +1,38 @@
+devicePlugin:
+  config:
+    name: time-slicing-config
+    default: any
+    create: true
+    data:
+      any: |-
+        version: v1
+        flags:
+          migStrategy: none
+        sharing:
+          timeSlicing:
+            resources:
+            - name: nvidia.com/gpu
+              replicas: 8
+toolkit:
+  env:
+    - name: CONTAINERD_CONFIG
+      value: /etc/containerd/config.toml
+    - name: CONTAINERD_SOCKET
+      value: /run/k3s/containerd/containerd.sock
+    - name: CONTAINERD_RUNTIME_CLASS
+      value: nvidia
+    - name: CONTAINERD_SET_AS_DEFAULT
+      value: "true"
+dcgmExporter:
+  serviceMonitor:
+    enabled: true
+    interval: 15s
+    honorLabels: false
+    additionalLabels: {}
+    relabelings:
+      - source_labels:
+          - __meta_kubernetes_pod_node_name
+        regex: (.*)
+        target_label: instance
+        replacement: $1
+        action: replace
