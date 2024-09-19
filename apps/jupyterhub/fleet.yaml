@@ -1,4 +1,4 @@
-namespace: jhub
+defaultNamespace: jhub
 helm:
   chart: jupyterhub
   releaseName: jupyterhub

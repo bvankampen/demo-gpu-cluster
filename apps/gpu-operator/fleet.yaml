@@ -1,4 +1,4 @@
-namespace: gpu-operator
+defaultNamespace: gpu-operator
 helm:
   chart: gpu-operator
   releaseName: gpu-operator
