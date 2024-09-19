@@ -1,0 +1,13 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: gpu-cluster
+  namespace: fleet-default
+spec:
+  branch: main
+  insecureSkipTLSVerify: false
+  paths:
+    - apps
+  repo: https://github.com/bvankampen/demo-gpu-cluster.git
+  targets:
+    - clusterName: gpu-cluster
